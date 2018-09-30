@@ -1,0 +1,10 @@
+<ActionBar title="Person">
+    <ActionItem text="create" [nsRouterLink]="['/create']" pageTransition="flip" ios.position="right"></ActionItem><!-- (tap)="create()" -->
+</ActionBar>
+<GridLayout>
+    <ListView [items]="images">
+        <ng-template let-item="item">
+            <Label [text]="item.firstname + ' ' + item.lastname"></Label>
+        </ng-template>
+    </ListView>
+</GridLayout>
