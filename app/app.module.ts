@@ -11,6 +11,7 @@ import { CreateComponent } from "~/components/create/create.component";
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
+import { UserListComponent } from "~/user-list/user-list.component";
 
 // Uncomment and add to NgModule imports if you need to use the HttpClient wrapper
 // import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
@@ -23,7 +24,8 @@ import { NativeScriptFormsModule } from "nativescript-angular/forms";
     // ItemsComponent,
     // ItemDetailComponent,
     ListComponent,
-    CreateComponent
+    CreateComponent,
+    UserListComponent
   ],
   providers: [ItemService],
   schemas: [NO_ERRORS_SCHEMA]

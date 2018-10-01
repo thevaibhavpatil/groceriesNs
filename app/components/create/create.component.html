@@ -1,15 +1,24 @@
-<ActionBar title="Create">
-    <NavigationButton text="Back" (tap)="back()" android.systemIcon="ic_menu_back"></NavigationButton>
+<Page>
+    <ActionBar title="Create">
+        <NavigationButton text="Back" (tap)="back()" android.systemIcon="ic_menu_back"></NavigationButton>
 
-    <ActionItem text="Save" (tap)="save()" ios.position="right"></ActionItem>
+        <ActionItem text="Save" (tap)="save()" ios.position="right"></ActionItem>
 
-</ActionBar>
-<ScrollView sdkExampleTitle sdkToggleNavButton>
+    </ActionBar>
+    <ScrollView sdkExampleTitle sdkToggleNavButton>
 
-    <StackLayout>
-        <Image [src]="imageTaken" flexGrow="3" class="p-15 img-rounded"></Image>
-        <Button text="Take Photo" class="btn btn-primary btn-active" (tap)="onTakePhoto()" flexGrow="1"></Button>
-        <TextField hint="First Name" [(ngModel)]="firstname"></TextField>
-        <TextField hint="Last Name" [(ngModel)]="lastname"></TextField>
-    </StackLayout>
-</ScrollView>
+        <StackLayout>
+            <TextField hint="First Name" [(ngModel)]="firstname"></TextField>
+            <TextField hint="Last Name" [(ngModel)]="lastname"></TextField>
+            <Image [src]="imageTaken" flexGrow="3" class="p-15 img-rounded"></Image>
+            <Button text="Take Photo" class="btn btn-primary btn-active" (tap)="onTakePhoto()" flexGrow="1"></Button>
+
+            <ListView [items]="images">
+                <ng-template let-item="item">
+                    <Image [src]="item" flexGrow="3" class="p-15 img-rounded"></Image>
+                </ng-template>
+            </ListView>
+        </StackLayout>
+
+    </ScrollView>
+</Page>

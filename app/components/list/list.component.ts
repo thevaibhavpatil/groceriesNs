@@ -4,6 +4,8 @@ import { Router } from "@angular/router";
 import * as applicationSettings from "application-settings";
 import { Couchbase } from "nativescript-couchbase";
 import * as ImageSource from "image-source";
+import { ObservableArray } from "tns-core-modules/data/observable-array/observable-array";
+import { PageRoute } from "nativescript-angular/router";
 
 
 
@@ -15,9 +17,10 @@ export class ListComponent {
     router: Router;
     personList: Array<Object>;
     public database: any;
-    public images: Array<any>;
+    // public images: Array<any>;
+    images = new ObservableArray();
 
-    constructor(router: Router, location: Location ) {
+    constructor(router: Router, location: Location, private pageRoute: PageRoute ) {
         this.router = router;
         this.personList = JSON.parse(applicationSettings.getString("people", "[]"));
         location.subscribe((path) => {
@@ -29,7 +32,7 @@ export class ListComponent {
                 emitter.emit(document._id, document);
             }
         });
-        this.images = [];
+        this.images =  new ObservableArray([]);
     }
     ngOnInit(): void {
         let rows = this.database.executeQuery("images");
@@ -42,5 +45,7 @@ export class ListComponent {
     create() {
         this.router.navigate(["/create"]);
     }
-    
+    deleteFromDB(){
+
+    }
 }

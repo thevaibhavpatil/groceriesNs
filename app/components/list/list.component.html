@@ -1,10 +1,31 @@
-<ActionBar title="Person">
-    <ActionItem text="create" [nsRouterLink]="['/create']" pageTransition="flip" ios.position="right"></ActionItem><!-- (tap)="create()" -->
-</ActionBar>
-<GridLayout>
-    <ListView [items]="images">
-        <ng-template let-item="item">
-            <Label [text]="item.firstname + ' ' + item.lastname"></Label>
-        </ng-template>
-    </ListView>
-</GridLayout>
+<!-- <Page> -->
+   <!--  <ActionBar title="Person">
+        <ActionItem text="create" [nsRouterLink]="['/create']" pageTransition="flip" ios.position="right"></ActionItem>
+    </ActionBar> --><!-- (tap)="create()" -->
+
+    <StackLayout>
+        <!-- <GridLayout columns="*,2*" rows="2*,3*" width="300" height="300" backgroundColor="lightgray">
+            <Label text="Label 1" col="0" row="0" backgroundColor="red"></Label>
+            <Label text="Label 2" col="1" row="0" backgroundColor="green"></Label>
+            <Label text="Label 3" col="0" row="1" backgroundColor="blue"></Label>
+            <Label text="Label 4" col="1" row="1" backgroundColor="yellow"></Label>
+        </GridLayout> -->
+        <ListView [items]="personList">
+            <ng-template let-item="item">
+                <Label [text]="item.firstname + ' ' + item.lastname"></Label>
+            </ng-template>
+        </ListView>
+        <ListView [items]="images">
+            <StackLayout>
+                <ng-template let-item="item">
+                    <Image [src]="item" flexGrow="3" class="p-15 img-rounded"></Image>
+                    <!-- <Button text="Delete" (tap)="deleteFromDB()"></Button> -->
+                </ng-template>
+
+
+            </StackLayout>
+
+        </ListView>
+
+    </StackLayout>
+<!-- </Page> -->

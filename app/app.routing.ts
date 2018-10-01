@@ -1,22 +1,26 @@
-import { NgModule } from "@angular/core";
-import { NativeScriptRouterModule } from "nativescript-angular/router";
-import { Routes } from "@angular/router";
+import { NgModule } from '@angular/core';
+import { NativeScriptRouterModule } from 'nativescript-angular/router';
+import { Routes } from '@angular/router';
 
-import { ItemsComponent } from "./item/items.component";
-import { ItemDetailComponent } from "./item/item-detail.component";
-import { ListComponent } from "~/components/list/list.component";
-import { CreateComponent } from "~/components/create/create.component";
+import { ItemsComponent } from './item/items.component';
+import { ItemDetailComponent } from './item/item-detail.component';
+import { ListComponent } from '~/components/list/list.component';
+import { CreateComponent } from '~/components/create/create.component';
+import { UserListComponent } from '~/user-list/user-list.component';
 
 const routes: Routes = [
-    // { path: "", redirectTo: "/items", pathMatch: "full" },
-    // { path: "items", component: ItemsComponent },
-    // { path: "item/:id", component: ItemDetailComponent },
-    { path: "", component: ListComponent },
-    { path: "create", component: CreateComponent }
+  // { path: "", redirectTo: "/items", pathMatch: "full" },
+  // { path: "items", component: ItemsComponent },
+  // { path: "item/:id", component: ItemDetailComponent },
+  {
+    path: '',
+    component: UserListComponent,
+    children: [{ path: '', component: ListComponent }, { path: 'create', component: CreateComponent }]
+  }
 ];
 
 @NgModule({
-    imports: [NativeScriptRouterModule.forRoot(routes)],
-    exports: [NativeScriptRouterModule]
+  imports: [NativeScriptRouterModule.forRoot(routes)],
+  exports: [NativeScriptRouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
