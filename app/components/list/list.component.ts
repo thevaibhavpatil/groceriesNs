@@ -19,6 +19,7 @@ export class ListComponent {
     public database: any;
     // public images: Array<any>;
     images = new ObservableArray();
+    imageSrc =  new ObservableArray([]);
 
     constructor(router: Router, location: Location, private pageRoute: PageRoute ) {
         this.router = router;
@@ -37,7 +38,10 @@ export class ListComponent {
     ngOnInit(): void {
         let rows = this.database.executeQuery("images");
         for(let i = 0; i < rows.length; i++) {
-            this.images.push(ImageSource.fromBase64(rows[i].image));
+            const imageSrc = ImageSource.fromBase64(rows[i].image);
+            rows[i]['imageSrc'] = imageSrc;
+            console.log(' rows[i][\'imageSrc\']',  rows[i]['imageSrc'])
+            this.images.push(rows[i]);
         }
         
     }

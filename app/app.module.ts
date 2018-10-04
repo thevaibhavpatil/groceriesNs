@@ -12,20 +12,23 @@ import { CreateComponent } from "~/components/create/create.component";
 // Uncomment and add to NgModule imports if you need to use two-way binding
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import { UserListComponent } from "~/user-list/user-list.component";
+import { LoginComponent } from "~/components/login/login.component";
+import { HttpClientModule } from "@angular/common/http";
 
 // Uncomment and add to NgModule imports if you need to use the HttpClient wrapper
 // import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 
 @NgModule({
   bootstrap: [AppComponent],
-  imports: [NativeScriptModule, AppRoutingModule, NativeScriptFormsModule],
+  imports: [NativeScriptModule, AppRoutingModule, NativeScriptFormsModule, HttpClientModule],
   declarations: [
     AppComponent,
     // ItemsComponent,
     // ItemDetailComponent,
     ListComponent,
     CreateComponent,
-    UserListComponent
+    UserListComponent,
+    LoginComponent
   ],
   providers: [ItemService],
   schemas: [NO_ERRORS_SCHEMA]

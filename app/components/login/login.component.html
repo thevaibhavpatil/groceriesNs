@@ -1,0 +1,34 @@
+<Page>
+  <!-- <StackLayout>
+    <ListView [items]="images">
+      <StackLayout>
+        <ng-template let-item="item" let-i="index">
+            <StackLayout><Image [src]="item.img"></Image></StackLayout>
+          
+        </ng-template>
+      </StackLayout>
+    </ListView>
+  </StackLayout> -->
+  <!-- <ActionBar title="Person">
+             <ActionItem text="create" [nsRouterLink]="['/create']" pageTransition="flip" ios.position="right"></ActionItem>
+         </ActionBar> -->
+    <StackLayout>
+
+      <ListView [items]="images">
+        <StackLayout>
+
+          <ng-template let-item="item" let-i="index">
+            <StackLayout>
+              <!-- <Label [text]="item.firstname + ' ' + item.lastname"></Label> -->
+              <Image [src]="item.img" class="p-15 img-rounded"></Image>
+              <!-- <Button text="Delete" (tap)="deleteFromDB()"></Button> -->
+            </StackLayout>
+          </ng-template>
+
+
+        </StackLayout>
+
+      </ListView>
+
+    </StackLayout>
+</Page>

@@ -7,6 +7,7 @@ import { ItemDetailComponent } from './item/item-detail.component';
 import { ListComponent } from '~/components/list/list.component';
 import { CreateComponent } from '~/components/create/create.component';
 import { UserListComponent } from '~/user-list/user-list.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   // { path: "", redirectTo: "/items", pathMatch: "full" },
@@ -15,7 +16,11 @@ const routes: Routes = [
   {
     path: '',
     component: UserListComponent,
-    children: [{ path: '', component: ListComponent }, { path: 'create', component: CreateComponent }]
+    children: [
+      { path: '', component: ListComponent },
+      { path: 'create', component: CreateComponent },
+      { path: 'login', component: LoginComponent }
+    ]
   }
 ];
 

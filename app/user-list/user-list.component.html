@@ -1,9 +1,10 @@
 <Page>
 <StackLayout>
 
-<GridLayout columns="*,2*" rows="2*" width="300" height="50" backgroundColor="lightgray">
+<GridLayout columns="*,*,*" rows="*" width="300" height="50" backgroundColor="lightgray">
     <Label text="list" col="0" row="0" backgroundColor="red" [nsRouterLink]="['']"></Label>
     <Label text="Create" col="1" row="0" backgroundColor="green" [nsRouterLink]="['/create']"></Label>
+    <Label text="Login" col="2" row="0" backgroundColor="green" [nsRouterLink]="['/login']"></Label>
     <!-- <Label text="Label 3" col="0" row="1" backgroundColor="blue"></Label>
     <Label text="Label 4" col="1" row="1" backgroundColor="yellow"></Label> -->
   </GridLayout>
