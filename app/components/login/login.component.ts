@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    // this.page.bindingContext = this.images;
+    this.page.bindingContext = this.images;
 
     this.http
       .get(
@@ -73,13 +73,14 @@ export class LoginComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
     //Add 'implements AfterViewInit' to the class.
-    setTimeout(() => {
-      const androidPkg = android;
-      let card = this.ref.nativeElement;
+    
+    // setTimeout(() => {
+    //   const androidPkg = android;
+    //   let card = this.ref.nativeElement;
 
-      card.width = '200';
-      this.setLabelShadow(this.page, "balance");
-    }, 5000);
+    //   card.width = '200';
+    //   this.setLabelShadow(this.page, "balance");
+    // }, 5000);
   }
 
   setLabelShadow(page: any, labelId: string) {

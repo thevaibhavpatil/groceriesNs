@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Location } from '@angular/common';
 import * as applicationSettings from 'application-settings';
 import { RouterExtensions } from 'nativescript-angular/router';
@@ -9,12 +9,13 @@ import { takePicture, requestPermissions, isAvailable } from 'nativescript-camer
 import * as Camera from 'nativescript-camera';
 import { Couchbase } from 'nativescript-couchbase';
 import * as ImageSource from 'image-source';
+import { Page } from 'ui/page';
 
 @Component({
   selector: 'create',
   templateUrl: './components/create/create.component.html'
 })
-export class CreateComponent {
+export class CreateComponent implements OnDestroy{
   location: Location;
   firstname: string;
   lastname: string;
@@ -25,7 +26,8 @@ export class CreateComponent {
   public height: number = 300;
   database: any;
   images: any;
-  constructor(location: Location, private routerExtensions: RouterExtensions) {
+  constructor(private page:Page,location: Location, private routerExtensions: RouterExtensions) {
+    page.actionBarHidden = false;
     this.location = location;
     this.firstname = '';
     this.lastname = '';
@@ -108,5 +110,11 @@ export class CreateComponent {
       this.images.push(ImageSource.fromBase64(rows[i].image));
     }
     console.log('this.images', this.images);
+  }
+
+  ngOnDestroy(): void {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
+    this.page.actionBarHidden = true;
   }
 }
