@@ -1,27 +1,30 @@
 <Page>
-  <!-- <StackLayout>
-    <ListView [items]="images">
-      <StackLayout>
-        <ng-template let-item="item" let-i="index">
-            <StackLayout><Image [src]="item.img"></Image></StackLayout>
-          
-        </ng-template>
-      </StackLayout>
-    </ListView>
-  </StackLayout> -->
+  <!-- <GridLayout columns="*" style="border-width:1" borderColor="red"> -->
+  <ListView [items]="images" style="border-width:1" borderColor="green">
+    <!-- <StackLayout style="border-width:1" borderColor="blue"> -->
+    <ng-template let-item="item" let-i="i">
+      <Image [id]="'img'+ i" margin="10" height="100" [src]="item.img"></Image>
+
+    </ng-template>
+    <!-- </StackLayout> -->
+  </ListView>
+  <StackLayout id="sh" #ref height="100" width="100" margin="10" backgroundColor="#aeea00">
+    <Label id ="balance" text="balance" textWrap="true" ></Label>
+    
+  </StackLayout>
+
+  <!-- </GridLayout> -->
   <!-- <ActionBar title="Person">
              <ActionItem text="create" [nsRouterLink]="['/create']" pageTransition="flip" ios.position="right"></ActionItem>
          </ActionBar> -->
-    <StackLayout>
+  <!-- <StackLayout>
 
       <ListView [items]="images">
         <StackLayout>
 
           <ng-template let-item="item" let-i="index">
             <StackLayout>
-              <!-- <Label [text]="item.firstname + ' ' + item.lastname"></Label> -->
               <Image [src]="item.img" class="p-15 img-rounded"></Image>
-              <!-- <Button text="Delete" (tap)="deleteFromDB()"></Button> -->
             </StackLayout>
           </ng-template>
 
@@ -30,5 +33,5 @@
 
       </ListView>
 
-    </StackLayout>
+    </StackLayout> -->
 </Page>
